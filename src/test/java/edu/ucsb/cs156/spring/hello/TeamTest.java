@@ -49,6 +49,19 @@ public class TeamTest {
     }
 
     @Test
+    public void different_names() {
+        Team other = new Team("other-team");
+        assertFalse(team.equals(other));
+    }
+
+    @Test
+    public void same_team_different_members() {
+        Team other = new Team("test-team");
+        other.addMember("newMember");
+        assertFalse(team.equals(other));
+    }
+
+    @Test
     public void test_hashCode() {
         Team t1 = new Team();
         t1.setName("foo");
